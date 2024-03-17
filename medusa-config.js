@@ -34,6 +34,9 @@ const DATABASE_URL =
 
 const REDIS_URL = process.env.REDIS_URL || "redis://localhost:6379";
 
+console.log("Database URL:", process.env.DATABASE_URL);
+console.log("Redis URL:", process.env.REDIS_URL);
+
 const plugins = [
   `medusa-fulfillment-manual`,
   `medusa-payment-manual`,
