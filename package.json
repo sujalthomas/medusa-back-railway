@@ -1,6 +1,6 @@
 {
   "name": "medusa-starter-default",
-  "version": "0.0.1",
+  "version": "0.1.9",
   "description": "A starter for Medusa projects.",
   "author": "Medusa (https://medusajs.com)",
   "license": "MIT",
@@ -14,8 +14,8 @@
   ],
   "scripts": {
     "clean": "cross-env ./node_modules/.bin/rimraf dist",
-    "build": "cross-env npm run clean && npm run build:server && npm run build:admin",
-    "build:server": "cross-env npm run clean && tsc -p tsconfig.server.json",
+    "build": "cross-env npm run clean && npm run build:server && npm run build:admin && next build",
+    "build:server": "cross-env tsc -p tsconfig.server.json",
     "build:admin": "cross-env medusa-admin build --deployment",
     "watch": "cross-env tsc --watch",
     "test": "cross-env jest",
@@ -23,7 +23,7 @@
     "start": "cross-env npm run build && medusa start",
     "start:custom": "cross-env npm run build && node --preserve-symlinks --trace-warnings index.js",
     "dev": "cross-env npm run build:server && medusa develop",
-    "dev:admin": "cross-env npm medusa-admin develop"
+    "dev:admin": "cross-env npm run medusa-admin develop"
   },
   "dependencies": {
     "@medusajs/admin": "^7.1.11",
